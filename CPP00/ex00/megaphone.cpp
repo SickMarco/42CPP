@@ -9,9 +9,8 @@ int main(int argc, char *argv[])
 		{
 			int len = strlen(argv[i]);
 			for (int x = 0; x < len; x++)
-				argv[i][x] = std::toupper(argv[i][x]);
-			std::cout << argv[i];
-			(argv[i + 1]) ? std::cout << ' ' : std::cout << std::endl;
+				std::cout << (char)std::toupper(argv[i][x]);
+			std::cout << (argv[i + 1] ? ' ' : '\n');
 		}
 	}
 	else
