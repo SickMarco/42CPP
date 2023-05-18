@@ -13,7 +13,7 @@ std::string trunc(std::string info)
 	if (info.length() > 10)
 	{
 		info = info.substr(0, 10);
-		info[info.length() - 1] = '.';
+		info[9] = '.';
 	}
 	return (info);
 }
@@ -32,26 +32,28 @@ void PhoneBook::display_contact()
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "|" << std::right << std::setw(10) << i + 1 << "|";
-		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_contact(0)) << "|";
-		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_contact(1)) << "|";
-		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_contact(2)) << "|" << std::endl;
+		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_info(0)) << "|";
+		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_info(1)) << "|";
+		std::cout << std::right << std::setw(10) << trunc(cnt[i].get_info(2)) << "|" << std::endl;
 	}
 }
 
 void PhoneBook::search_contact()
 {
-	int index = 0;
+	std::string data[5] = {	"First Name",
+						"Last Name",
+						"Nickname",
+						"Number",
+						"Secret"};
 
+	int index = 0;
+	std::string tmp;
 	std::cout << "Insert Contact Index: ";
-	std::cin >> index;
-	if (std::cin.fail() || index < 1 || index > 8)
-	{
-		std::cout << "Invalid Index. Try again." << std::endl;
-		return;
-	}
-	else if (!cnt[index - 1].get_contact(0).empty())
-	{
+	std::getline(std::cin, tmp);
+	index = atoi(tmp.c_str());
+	if (index < 1 || index > 8)
+		std::cout << "Invalid Index. Search again." << std::endl;
+	else if (!cnt[index - 1].get_info(0).empty())
 		for (int i = 0; i < 5; i++)
-			std::cout << cnt[index - 1].get_contact(i) << std::endl;
-	}
+			std::cout << data[i] << ": " << cnt[index - 1].get_info(i) << std::endl;
 }

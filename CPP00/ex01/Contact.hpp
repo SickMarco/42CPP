@@ -12,7 +12,7 @@ class Contact
 		Contact();
 		~Contact();
 		void set_contact();
-		std::string get_contact(int index);
+		std::string get_info(int index);
 };
 
 #endif

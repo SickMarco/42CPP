@@ -30,4 +30,4 @@ void Contact::set_contact()
 	}
 }
 
-std::string Contact::get_contact(int index) {return contact[index];}
+std::string Contact::get_info(int index) {return contact[index];}
