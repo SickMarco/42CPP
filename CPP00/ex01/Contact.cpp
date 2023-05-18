@@ -8,46 +8,26 @@ Contact::~Contact()
 {
 }
 
-void Contact::set_fName()
+void Contact::set_contact()
 {
-	std::cout << "Insert First Name: ";
-	std::getline(std::cin, this->fName);
+	std::string data[5] = {	"First Name",
+							"Last Name",
+							"Nickname",
+							"Number",
+							"Secret"};
+
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Insert " << data[i] << ": ";
+		std::getline(std::cin, contact[i]);
+		if (contact[i].empty())
+		{
+			std::cout << "Error: Empty Field\n";
+			for (int i = 0; i < 5; i++)
+				contact[i].clear();
+			break;
+		}
+	}
 }
 
-void Contact::set_lName()
-{
-	std::cout << "Insert Last Name: ";
-	std::getline(std::cin, this->lName);
-}
-
-void Contact::set_nName()
-{
-	std::cout << "Insert Nickame: ";
-	std::getline(std::cin, this->nName);
-}
-
-void Contact::set_numb()
-{
-	std::cout << "Insert Number: ";
-	std::getline(std::cin, this->numb);
-}
-
-void Contact::set_secret()
-{
-	std::cout << "Insert Secret: ";
-	std::getline(std::cin, this->Secret);
-}
-
-bool Contact::check_field()
-{
-	return (!fName.empty() && !lName.empty() && !nName.empty() && !numb.empty() && !Secret.empty());
-}
-
-void Contact::reset_contact()
-{
-	fName.clear();
-	lName.clear();
-	nName.clear();
-	numb.clear();
-	Secret.clear();
-}
+std::string Contact::get_contact(int index) {return contact[index];}

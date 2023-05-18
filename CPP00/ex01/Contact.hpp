@@ -6,22 +6,13 @@
 class Contact
 {
 	private:	
-		std::string fName;
-		std::string lName;
-		std::string nName;
-		std::string numb;
-		std::string Secret;
+		std::string contact[5];
 
 	public:
 		Contact();
 		~Contact();
-		void set_fName();
-		void set_lName();
-		void set_nName();
-		void set_numb();
-		void set_secret();
-		bool check_field();
-		void reset_contact();
+		void set_contact();
+		std::string get_contact(int index);
 };
 
 #endif
