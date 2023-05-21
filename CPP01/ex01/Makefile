@@ -4,7 +4,7 @@ SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJ_DIR = ./.obj/
 
-CC = g++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
