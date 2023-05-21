@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 19:36:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 19:36:25 by mbozzi           ###   ########.fr       */
+/*   Created: 2023/05/21 19:35:43 by mbozzi            #+#    #+#             */
+/*   Updated: 2023/05/21 19:35:45 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main()
+#include <iostream>
+#include <string>
+
+class Harl
 {
-	std::string cmd;
-	Harl Harlem;
+private:
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
+public:
+	Harl();
+	~Harl();
+	void complain( std::string level );
+};
 
-	while (!std::cin.eof())
-	{
-		std::cout << "Insert cmd: ";
-		std::getline(std::cin, cmd);
-		if(!cmd.empty())
-			Harlem.complain(cmd);
-	}
-	return 0;
-}
+#endif
