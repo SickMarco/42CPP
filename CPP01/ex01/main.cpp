@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:04:04 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 20:04:04 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:36:35 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	std::cout 	<< "\e[1;31m ---WELCOME IN THE ZOMBIE HORDE FACTORY--- " << std::endl;
 	while (!std::cin.eof())
 	{
-		std::cout << "\e[0;37mInsert Horde troop load:";
+		std::cout << "\e[0;37mInsert Horde troop load: ";
 		while (!(std::cin >> horde))
 		{
 			if (std::cin.eof())

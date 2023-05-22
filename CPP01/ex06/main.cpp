@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:35:29 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 20:00:38 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/22 14:53:26 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ int main(int ac, char **av)
 					Harlem.complain(levels[2]);
 				case 3:
 					Harlem.complain(levels[3]);
-					break;
+					return 0;
 				}
-				return 0;
 			}
 		}
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

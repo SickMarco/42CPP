@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:36:21 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 19:36:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/22 14:51:33 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 
 class Harl
 {
-private:
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-public:
-	Harl();
-	~Harl();
-	void complain( std::string level );
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+
+	public:
+		Harl();
+		~Harl();
+		void complain( std::string level );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:04:11 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 20:04:11 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/22 14:04:14 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ class Zombie
 };
 
 Zombie* zombieHorde( int N, std::string name );
+
 #endif

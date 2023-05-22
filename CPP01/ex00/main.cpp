@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:04:21 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/21 20:04:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:32:53 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
+	std::string input;
 	std::string newName;
 	char		mem;
 	
@@ -21,12 +22,9 @@ int main()
 	while (!std::cin.eof())
 	{
 		std::cout << "\e[0;37mSelect the zombie maker (Heap or Stack) [H/S]: ";
-		std::cin.get(mem);
-		std::cin.ignore(100, '\n');
-		if (std::cin.eof())
-			break;
-		mem = std::toupper(mem);
-		if (mem != 'H' && mem != 'S')
+		std::getline(std::cin, input);
+		mem = std::toupper(input[0]);
+		if (input.length() != 1 || (mem != 'H' && mem != 'S'))
             continue;
 		std::cout << "Insert zombie name: " << std::flush;
 		std::getline(std::cin, newName);
