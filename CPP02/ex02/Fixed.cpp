@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:55:06 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/24 14:33:41 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/24 16:59:25 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ Fixed::~Fixed(){
 }
 
 // COPY ASSIGNMENT OPERATOR (= OVERLOAD)
-Fixed& Fixed::operator = (const Fixed& src)
-{
+Fixed& Fixed::operator = (const Fixed& src){
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &src)
-		_fixedNb = src.getRawBits();
+		_fixedNb = src._fixedNb;
 	return *this;
 }
 
@@ -55,6 +54,77 @@ std::ostream& operator<<(std::ostream& os, const Fixed& f){
 	return os;
 }
 
+// + OVERLOAD
+Fixed Fixed::operator+(const Fixed& add) const {
+	return Fixed(toFloat() + add.toFloat());
+}
+
+// - OVERLOAD
+Fixed Fixed::operator-( const Fixed& sub) const {
+	return Fixed(toFloat() - sub.toFloat());
+}
+
+// * OVERLOAD
+Fixed Fixed::operator*( const Fixed& mult ) const {
+	return Fixed(toFloat() * mult.toFloat());
+}
+
+Fixed Fixed::operator/( const Fixed& mult ) const {
+	return Fixed(toFloat() / mult.toFloat());
+}
+
+// ++ OVERLOAD
+Fixed& Fixed::operator++(void){
+	++_fixedNb;
+	return *this;
+}
+
+// OVERLOAD ++
+Fixed Fixed::operator++(int){
+	Fixed tmp(*this);
+	++_fixedNb;
+	return tmp;
+}
+
+// -- OVERLOAD
+Fixed& Fixed::operator--(void){
+	--_fixedNb;
+	return *this;
+}
+
+// OVERLOAD --
+Fixed Fixed::operator--(int){
+	Fixed tmp(*this);
+	--_fixedNb;
+	return tmp;
+}
+
+// COMPARISON
+bool Fixed::operator>(const Fixed& cmp) const {
+	return (this->_fixedNb > cmp._fixedNb);
+}
+
+bool Fixed::operator>=(const Fixed& cmp) const {
+	return (this->_fixedNb >= cmp._fixedNb);
+}
+
+bool Fixed::operator<(const Fixed& cmp) const {
+	return (this->_fixedNb < cmp._fixedNb);
+}
+
+bool Fixed::operator<=(const Fixed& cmp) const {
+	return (this->_fixedNb <= cmp._fixedNb);
+}
+
+bool Fixed::operator==(const Fixed& cmp) const {
+	return (this->_fixedNb == cmp._fixedNb);
+}
+
+bool Fixed::operator!=(const Fixed& cmp) const {
+	return (this->_fixedNb != cmp._fixedNb);
+}
+
+// MEMBER FUNCTIONS
 int Fixed::getRawBits(void) const{
 	return _fixedNb;
 }
@@ -69,4 +139,20 @@ float Fixed::toFloat(void) const{
 
 int Fixed::toInt(void) const{
 	return _fixedNb >> _fractBits;
+}
+
+Fixed& Fixed::min(Fixed& x, Fixed& y){
+	return (x < y ? x : y);
+}
+
+const Fixed& Fixed::min(const Fixed& x, const Fixed& y){
+	return (x < y ? x : y);
+}
+
+Fixed& Fixed::max(Fixed& x, Fixed& y){
+	return (x > y ? x : y);
+}
+
+const Fixed& Fixed::max(const Fixed& x, const Fixed& y){
+	return (x > y ? x : y);
 }
