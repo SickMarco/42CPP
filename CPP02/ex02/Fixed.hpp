@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:55:09 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/24 17:01:55 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:17:58 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,47 +18,46 @@
 
 class Fixed
 {
-	private:
-		int _fixedNb;
-		static const int _fractBits;
-	
-	public:
-		Fixed();
-		Fixed( const int initNb );
-		Fixed( const float initNb );
-		Fixed( const Fixed &oldClass );
-		~Fixed();
+private:
+	int _fixedNb;
+	static const int _fractBits;
 
-		Fixed& operator=( const Fixed& src );
-	
-		Fixed operator+( const Fixed& add) const;
-		Fixed operator-( const Fixed& sub) const;
-		Fixed operator*( const Fixed& mult ) const;
-		Fixed operator/( const Fixed& mult ) const;
+public:
+	Fixed();
+	Fixed( const int initNb );
+	Fixed( const float initNb );
+	Fixed( const Fixed &oldClass );
+	Fixed& operator=( const Fixed& src );
+	~Fixed();
 
-		Fixed& operator++( void );
-		Fixed operator++( int );
-		Fixed& operator--( void );
-		Fixed operator--( int );
+	Fixed operator+( const Fixed& add) const;
+	Fixed operator-( const Fixed& sub) const;
+	Fixed operator*( const Fixed& mult ) const;
+	Fixed operator/( const Fixed& mult ) const;
 
-		bool operator>( const Fixed &cmp ) const;
-		bool operator<( const Fixed &cmp ) const;
-		bool operator>=( const Fixed &cmp ) const;
-		bool operator<=( const Fixed &cmp ) const;
-		bool operator==( const Fixed &cmp ) const;
-		bool operator!=( const Fixed &cmp ) const;
+	Fixed& operator++( void );
+	Fixed operator++( int );
+	Fixed& operator--( void );
+	Fixed operator--( int );
 
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+	bool operator>( const Fixed &cmp ) const;
+	bool operator<( const Fixed &cmp ) const;
+	bool operator>=( const Fixed &cmp ) const;
+	bool operator<=( const Fixed &cmp ) const;
+	bool operator==( const Fixed &cmp ) const;
+	bool operator!=( const Fixed &cmp ) const;
 
-		static Fixed& min( Fixed& x, Fixed& y );
-		static const Fixed& min( const Fixed& x, const Fixed& y );
-		static Fixed& max( Fixed& x, Fixed& y );
-		static const Fixed& max( const Fixed& x, const Fixed& y );
+	int getRawBits( void ) const;
+	void setRawBits( int const raw );
+	float toFloat( void ) const;
+	int toInt( void ) const;
 
-		friend std::ostream& operator<<( std::ostream& os, const Fixed& f );
+	static Fixed& min( Fixed& x, Fixed& y );
+	static const Fixed& min( const Fixed& x, const Fixed& y );
+	static Fixed& max( Fixed& x, Fixed& y );
+	static const Fixed& max( const Fixed& x, const Fixed& y );
 };
+
+std::ostream& operator<<( std::ostream& os, const Fixed& f );
 
 #endif

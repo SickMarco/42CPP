@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:55:06 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/25 16:39:18 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:31:28 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Fixed::~Fixed(){
 // COPY ASSIGNMENT OPERATOR (= OVERLOAD)
 Fixed& Fixed::operator = (const Fixed& src){
 	if (this != &src)
-		this->setRawBits(src.getRawBits());
+		this->_fixedNb = src._fixedNb;
 	return *this;
 }
 

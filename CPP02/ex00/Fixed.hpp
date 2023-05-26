@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:55:09 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/24 14:06:28 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:16:35 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Fixed
 	public:
 		Fixed();
 		Fixed( const Fixed &oldClass );
+		Fixed& operator=(const Fixed& src);
 		~Fixed();
 
-		Fixed& operator=(const Fixed& src);
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };

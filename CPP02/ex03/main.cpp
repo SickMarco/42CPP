@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:40:33 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/25 16:22:54 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:38:12 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ int main( void )
 	for (int i = 0; i < 4; i++)
 	{
 		std::cout << "Intert cordinate for point " << list[i] << " [X Y]: ";
-		std::cin >> x >> y;
-		pts[i] = Point(x, y);
+		if (std::cin >> x >> y)
+			pts[i] = Point(x, y);
+		else
+			return 1;
 	}
-	if (bsp(pts[0], pts[1], pts[2], pts[3]) == true)
+	if (bsp(pts[0], pts[1], pts[2], pts[3]))
 		std::cout << "The point is inside the triangle" << std::endl;
 	else
 		std::cout << "The point is outside the triangle" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:55:06 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/24 14:33:41 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:25:14 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ Fixed::~Fixed(){
 }
 
 // COPY ASSIGNMENT OPERATOR (= OVERLOAD)
-Fixed& Fixed::operator = (const Fixed& src)
-{
+Fixed& Fixed::operator = (const Fixed& src){
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &src)
-		_fixedNb = src.getRawBits();
+		this->_fixedNb = src._fixedNb;
 	return *this;
 }
 
