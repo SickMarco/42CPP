@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:02:13 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/25 16:36:08 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/26 12:21:18 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point){
 
 	z = d1 / d;
 	v = d2 / d;
-
-	std::cout << z << "  " << v << std::endl;
-	std::cout << z + v << std::endl;
-
-	return (z > 0) && (v > 0) && ((z + v) < 1);
+	
+	return (z.toFloat() > 0) && (v.toFloat() > 0) && ((z.toFloat() + v.toFloat()) < 0.9);
 }
