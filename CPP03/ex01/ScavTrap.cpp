@@ -6,36 +6,43 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:53:46 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/27 17:03:39 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/27 18:10:20 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap(){
-	std::cout << "Default constructor" << std::endl;
+	std::cout << "ScavTrap Default constructor" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string& setName): ClapTrap(setName){
-	std::cout << "Parameterized constructor" << std::endl;
-	this->setTrap(setName, 100, 50, 20);
+	std::cout << "ScavTrap Parameterized constructor" << std::endl;
+	this->_healt = 100;
+	this->_energy = 100;
+	this->_attackDamage = 30;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src){
-	std::cout << "Copy constructor" << std::endl;
+	std::cout << "ScavTrap Copy constructor" << std::endl;
 	*this = src;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "Default destructor" << std::endl;
+	std::cout << "ScavTrap Default destructor" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src){
 	if (this != &src)
-		this->setTrap(src.getName(), src.getHealt(), src.getEnergy(), src.getAttackDmg());
+	{
+		this->_name = src._name;
+		this->_healt = src._healt;
+		this->_energy = src._energy;
+		this->_attackDamage = src._attackDamage;
+	}
 	return *this;
 }
 
 void ScavTrap::guardGate(){
-	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
 }

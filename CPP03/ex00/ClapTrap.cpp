@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/26 12:54:02 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/27 18:14:06 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ClapTrap::ClapTrap(){
 }
 
 ClapTrap::~ClapTrap(){
+	std::cout << "Default destructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& setName): _name(setName), _healt(10), _energy(10), _attackDamage(0){

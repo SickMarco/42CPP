@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:45:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/26 12:20:44 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/27 18:13:43 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ private:
 	unsigned int _healt;
 	unsigned int _energy;
 	unsigned int _attackDamage;
+	ClapTrap();
 
 public:
-	ClapTrap();
 	ClapTrap(const std::string& setName);
 	ClapTrap(const ClapTrap& src);
 	ClapTrap& operator=(const ClapTrap& other);

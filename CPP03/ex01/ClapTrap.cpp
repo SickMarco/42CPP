@@ -6,26 +6,26 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/27 16:58:24 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/27 18:12:00 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-	std::cout << "Default constructor" << std::endl;
+	std::cout << "ClapTrap Default constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Default destructor" << std::endl;
+	std::cout << "ClapTrap Default destructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& setName): _name(setName), _healt(10), _energy(10), _attackDamage(0){
-	std::cout << "Parameterized constructor" << std::endl;
+	std::cout << "ClapTrap Parameterized constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src){
-	std::cout << "Copy constructor" << std::endl;
+	std::cout << "ClapTrap Copy constructor" << std::endl;
 	*this = src;
 }
 
@@ -52,27 +52,4 @@ void ClapTrap::takeDamage(unsigned int amount){
 void ClapTrap::beRepaired(unsigned int amount){
 	std::cout << "ClapTrap " << this->_name << " repairs itself and gets " << amount << " healt points back" << std::endl;
 	_healt += amount;
-}
-
-void ClapTrap::setTrap(std::string nName, unsigned int nHealt, unsigned int nEnergy, unsigned int nAttackDamage){
-	this->_name = nName;
-	this->_healt = nHealt;
-	this->_energy = nEnergy;
-	this-> _attackDamage = nAttackDamage;
-}
-
-std::string ClapTrap::getName() const{
-	return this->_name;
-}
-
-unsigned int ClapTrap::getHealt() const{
-	return this->_healt;
-}
-
-unsigned int ClapTrap::getEnergy() const{
-	return this->_energy;
-}
-
-unsigned int ClapTrap::getAttackDmg() const{
-	return this->_attackDamage;
 }
