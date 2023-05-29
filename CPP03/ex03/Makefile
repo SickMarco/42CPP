@@ -6,7 +6,7 @@ OBJ_DIR = ./.obj/
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g -Wshadow -Wno-shadow
 
 OBJP = $(addprefix $(OBJ_DIR),$(notdir $(SRC:.cpp=.o)))
 

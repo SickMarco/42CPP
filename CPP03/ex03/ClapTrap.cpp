@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/27 18:12:00 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/29 12:30:53 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 }
 
 void ClapTrap::attack(const std::string& target){
-	std::cout << "ClapTrap " << this->_name << " attacks " << target << " ,causing " << this->_attackDamage << " of damage!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " attacks " << target << ",causing " << this->_attackDamage << " of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
