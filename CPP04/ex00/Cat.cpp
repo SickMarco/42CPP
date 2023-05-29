@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:39:43 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/29 15:46:37 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/29 16:05:43 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ Cat::Cat(){
 }
 
 Cat::~Cat(){
+	std::cout << "Cat Default destructor" << std::endl;
 }
 
 Cat::Cat(const Cat& src){
+	std::cout << "Cat Copy destructor" << std::endl;
 	*this = src;
 }
 

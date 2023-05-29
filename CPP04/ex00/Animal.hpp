@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:34:39 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/29 15:34:36 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:24:05 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ protected:
 	std::string _type;
 public:
 	Animal();
-	~Animal();
+	virtual ~Animal();
 	Animal(const Animal& src);
 	Animal& operator=(const Animal& src);
 

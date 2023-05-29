@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:01:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/29 15:46:41 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/29 16:06:26 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Dog::~Dog(){
 }
 
 Dog::Dog(const Dog& src){
+	std::cout << "Doggo Copy destructor" << std::endl;
 	*this = src;
 }
 
