@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:38:59 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/29 15:45:38 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:57:39 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+private:
+	Brain* br;
 public:
 	Cat();
 	~Cat();

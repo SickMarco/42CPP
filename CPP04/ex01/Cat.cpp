@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:39:43 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/29 16:05:43 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:58:08 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ Cat::Cat(){
 	std::cout << "Cat Default constructor" << std::endl;
 	Animal::_type = "Kitty";
 	this->_type = "Cat";
+	this->br = new Brain();
 }
 
 Cat::~Cat(){
 	std::cout << "Cat Default destructor" << std::endl;
+	delete this->br;
 }
 
 Cat::Cat(const Cat& src){

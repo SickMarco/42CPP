@@ -6,33 +6,35 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:01:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/05/30 15:46:19 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/05/31 18:08:58 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(){
+Dog::Dog() : Animal(), br(new Brain()){
 	std::cout << "Dog Default constructor" << std::endl;
 	Animal::_type = "Doggo";
 	this->_type = "Dog";
-	new Brain();
 }
 
 Dog::~Dog(){
-	std::cout << "Doggo Default destructor" << std::endl;
-	delete 
+	std::cout << "Dog Default destructor" << std::endl;
+	delete this->br;
 }
 
-Dog::Dog(const Dog& src){
-	std::cout << "Doggo Copy destructor" << std::endl;
-	*this = src;
+Dog::Dog(const Dog& src) : Animal(src), br(new Brain(*src.br)){
+	std::cout << "Dog Copy constructor" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& src){
 	if (this != &src)
-		this->_type = src._type;
-	return *this;
+    {
+        Animal::operator=(src);
+        delete br;
+        br = new Brain(*src.br);
+    }
+    return *this;
 }
 
 void Dog::makeSound() const{
