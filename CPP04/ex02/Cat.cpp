@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:39:43 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/01 18:35:17 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/04 12:28:07 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Cat& Cat::operator=(const Cat& src){
 	if (this != &src)
 	{
 		A_Animal::operator=(src);
-		delete br;
 		this->br = new Brain(*src.br);
 	}
 	return *this;

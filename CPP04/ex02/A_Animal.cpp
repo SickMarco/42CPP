@@ -14,7 +14,7 @@
 
 A_Animal::A_Animal(){
 	std::cout << "A_Animal Default constructor" << std::endl;
-	this->_type = "";
+	this->_type = std::string();
 }
 
 A_Animal::~A_Animal(){

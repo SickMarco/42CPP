@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:34:39 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/01 19:32:09 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/04 12:31:39 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class A_Animal
 {
 protected:
 	std::string _type;
+
 public:
 	A_Animal();
 	virtual ~A_Animal();

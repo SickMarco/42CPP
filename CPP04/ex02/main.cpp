@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:34:07 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/01 19:36:26 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/04 12:36:42 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,28 @@
 
 int main()
 {
-/* 	std::cout << "ANIMALS ALLOC\n" << std::endl;
-	A_Animal* anm[100];
-	for (int i = 0; i < 100; i++)
-	{
-		(i < 50) ? anm[i] = new(std::nothrow) Dog() : anm[i] = new(std::nothrow) Cat();
-		if (!anm[i])
-			return 1;
-	}
-	std::cout << "\nANIMALS DEALLOC\n" << std::endl;
-	for (int i = 0; i < 100; i++)
-		delete anm[i]; */
-
-	A_Animal* anm1 = new Dog();
-	A_Animal* anm2 = anm1;
+	Dog* anm1 = new Dog();
+	Dog* anm2 = new Dog(*anm1);
 	std::cout << anm1->getType() << std::endl;
 	std::cout << anm2->getType() << std::endl;
 
-	anm2->setType("KTM");
+	anm1->setType("German Shepherd");
+	anm2->setType("Pitbull");
 
 	std::cout << anm1->getType() << std::endl;
 	std::cout << anm2->getType() << std::endl;
-	
 
-	delete anm1;
-	//delete anm2;
-
-/* 	A_Animal* anm3 = new Dog();
-	A_Animal* anm4 = new Dog();
-
-	anm3 = anm4;
-	std::cout << anm3 << std::endl << anm4 << std::endl;
 	delete anm1;
 	delete anm2;
-	//delete anm3;
-	//delete anm4; */
+
+	Cat cat1;
+	Cat cat2(cat1);
+
+	cat1.setType("Sphynx");
+
+	std::cout << cat1.getType() << std::endl;
+	std::cout << cat2.getType() << std::endl;
+
 	return 0;
 }
 

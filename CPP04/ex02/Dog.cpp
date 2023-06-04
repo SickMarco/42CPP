@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:01:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/01 19:34:34 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/04 12:32:46 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Dog& Dog::operator=(const Dog& src){
 	if (this != &src)
     {
         A_Animal::operator=(src);
-        delete br;
         br = new Brain(*src.br);
     }
     return *this;
