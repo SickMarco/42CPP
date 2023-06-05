@@ -6,18 +6,28 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:05:27 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/04 18:13:51 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/05 12:43:00 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(){}
+MateriaSource::MateriaSource(){
+	for (int i = 0; i < 4; i++)
+        this->materia[i] = NULL;
+}
 
-MateriaSource::~MateriaSource(){}
+MateriaSource::~MateriaSource(){
+	for (int i = 0; i < 4; i++)
+		if (this->materia[i])
+			delete this->materia[i];
+}
 
 void MateriaSource::learnMateria(AMateria* mat) {
-	this->materia = mat->clone();
+	for (int i = 0; i < 4; i++)
+		if (!this->materia[i])
+			this->materia[i] = mat->clone();
+	delete mat;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){

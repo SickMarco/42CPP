@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:29 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/04 18:57:21 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/05 12:49:48 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Character : public ICharacter
 private:
 	std::string _name;
 	AMateria* materias[4];
+	AMateria* garbage[100];
 	Character();
 
 public:

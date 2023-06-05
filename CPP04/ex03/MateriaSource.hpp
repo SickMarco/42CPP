@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:03:39 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/04 18:13:28 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/05 11:51:00 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class MateriaSource : public IMateriaSource
 {
 private:
 	std::string _type;
-	AMateria* materia;
+	AMateria* materia[4];
 public:
 	MateriaSource();
 	~MateriaSource();

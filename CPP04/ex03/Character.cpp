@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/04 19:14:17 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/05 13:13:50 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,34 @@
 Character::Character(){
 	for (int i = 0; i < 4; i++)
 		this->materias[i] = NULL;
+	for (int i = 0; i < 100; i++)
+		this->garbage[i] = NULL;
 }
 
 Character::~Character(){
 	for (int i = 0; i < 4; i++)
-		delete this->materias[i];
+	{
+		if (this->materias[i])
+		{
+			delete this->materias[i];
+			this->materias[i] = NULL;
+		}
+	}
+	for (int i = 0; i < 100; i++)
+	{
+		if (this->garbage[i])
+		{
+			delete this->garbage[i];
+			this->garbage[i] = NULL;
+		}
+	}
 }
 
-Character::Character(const std::string& setName){
-	this->_name = setName;
+Character::Character(const std::string& setName) : _name(setName){
+	for (int i = 0; i < 4; i++)
+		this->materias[i] = NULL;
+	for (int i = 0; i < 100; i++)
+		this->garbage[i] = NULL;
 }
 
 Character::Character(const Character& src){
@@ -47,14 +66,22 @@ std::string const & Character::getName() const{
 void Character::equip(AMateria* m){
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->materias[i] == NULL)
+		if (!this->materias[i])
+		{
 			this->materias[i] = m;
+			break;
+		}
 	}
 }
 
 void Character::unequip(int idx){
-	delete this->materias[idx];
-	this->materias[idx] = NULL;
+	static int count = 0;
+
+	if (this->materias[idx])
+	{
+		this->garbage[count++] = this->materias[idx];
+		this->materias[idx] = NULL;
+	}
 }
 
 void Character::use(int idx, ICharacter& target){
