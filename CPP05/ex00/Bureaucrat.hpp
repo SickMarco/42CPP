@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 13:36:35 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:42:11 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 private:
-	std::string _name;
+	const std::string _name;
 	int _grade;
 	Bureaucrat();
 
