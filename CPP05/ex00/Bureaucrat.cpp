@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:19 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 13:40:06 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:01:44 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Bureaucrat::minusGrade(){
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b){
-	os << b.getName() << ",  bureaucrat grade " << b.getGrade() << "." << std::endl;
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
 	return os;
 }
 
