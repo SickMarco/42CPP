@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:03:29 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 12:07:44 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:14:49 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ AForm::AForm(const std::string& setName, const int setSign, const int setExe)
 
 AForm::AForm(const AForm& src) 
 	: _name(src._name), _signed(src._signed), _signGrade(src._signGrade), _exeGrade(src._exeGrade) {
+}
+
+AForm& AForm::operator=(const AForm& src){
+	if (this != &src)
+		this->_signed = src._signed;
+	return *this;
 }
 
 const char* AForm::GradeTooHighException::what() const throw(){

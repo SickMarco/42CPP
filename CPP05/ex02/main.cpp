@@ -6,21 +6,24 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 15:13:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 20:00:22 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
 	std::string name;
 	std::string formName;
 	int grade;
-	int formSignGrade;
-	int formExeGrade;
+	int formType;
+	std::string target;
+	AForm *form;
 
 	while (!std::cin.eof())
 	{
@@ -31,23 +34,32 @@ int main()
 		std::cout << "Insert Bureaucrat Grade: ";
 		std::cin >> grade;
 		std::cin.ignore(1000, '\n');
-		std::cout << "Insert Form Name: ";
-		std::getline(std::cin, formName);
-		std::cout << "Insert Form Sign Grade: ";
-		std::cin >> formSignGrade;
+		std::cout << "Chose Form type [1: ShrubberyCreationForm, 2: RobotomyRequestForm]: ";
+		std::cin >> formType;
 		std::cin.ignore(1000, '\n');
-		std::cout << "Insert Form Execution Grade: ";
-		std::cin >> formExeGrade;
-		std::cin.ignore(1000, '\n');
+		std::cout << "Chose Form target: ";
+		std::getline(std::cin, target);
+		switch (formType)
+		{
+			case 1:
+				form = new ShrubberyCreationForm(target);
+				break;
+			case 2:
+				form = new RobotomyRequestForm(target);
+			default:
+				continue;
+		}
 
 		try {
 			Bureaucrat b(name, grade);
-			std::cout << "Name: " << b.getName() << " Grade: " << b.getGrade() << std::endl; 
-			
+			std::cout << "Name: " << b.getName() << " Grade: " << b.getGrade() << std::endl;
+			form->beSigned(b);
+			b.executeForm(*form);
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what() << std::endl;
 		}
+		delete form;
 	}
 	return 0;
 }

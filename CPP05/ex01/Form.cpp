@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:03:29 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 17:36:51 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:47:00 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ Form::Form(const std::string& setName, const int setSign, const int setExe)
 
 Form::Form(const Form& src) 
 	: _name(src._name), _signed(src._signed), _signGrade(src._signGrade), _exeGrade(src._exeGrade) {
+}
+
+Form& Form::operator=(const Form& src){
+	if (this != &src)
+		this->_signed = src._signed;
+	return *this;
 }
 
 const char* Form::GradeTooHighException::what() const throw(){

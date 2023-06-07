@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:03:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 17:51:38 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:30:22 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	~Form();
 	Form(const std::string& setName, const int setSign, const int setExe);
 	Form(const Form& src);
+	Form& operator=(const Form& src);
 	
 	std::string getName() const;
 	bool getSign() const;

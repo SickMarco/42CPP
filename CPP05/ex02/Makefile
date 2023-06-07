@@ -1,6 +1,6 @@
 NAME = execute
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp 
 
 OBJ_DIR = ./.obj/
 

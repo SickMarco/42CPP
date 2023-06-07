@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:03:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 12:07:26 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:47:18 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	virtual ~AForm();
 	AForm(const std::string& setName, const int setSign, const int setExe);
 	AForm(const AForm& src);
+	AForm& operator=(const AForm& src);
 
 	std::string getName() const;
 	bool getSign() const;
