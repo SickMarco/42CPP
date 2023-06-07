@@ -6,12 +6,13 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 17:52:49 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:12:25 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {

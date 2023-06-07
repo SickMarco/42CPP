@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 12:12:54 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:55:33 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AForm;
 class Bureaucrat
 {
 private:
-	std::string _name;
+	const std::string _name;
 	int _grade;
 	Bureaucrat();
 
@@ -33,8 +33,8 @@ public:
 
 	std::string getName() const;
 	int getGrade() const;
-	void plusGrade();
-	void minusGrade();
+	void promotion();
+	void demotion();
 
 	void signForm(AForm& form) const;
 	

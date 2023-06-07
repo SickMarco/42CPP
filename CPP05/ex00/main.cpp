@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 16:00:18 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:48:56 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 		try {
 			Bureaucrat b(name, grade);
 			std::cout << b << "You get a promotion!" << std::endl; 
-			b.plusGrade();
+			b.promotion();
 			std::cout << b;
 		}
 		catch(const std::exception& e) {

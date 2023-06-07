@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:25 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 16:42:11 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:48:48 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ public:
 
 	std::string getName() const;
 	int getGrade() const;
-	void plusGrade();
-	void minusGrade();
+	void promotion();
+	void demotion();
 
 	class GradeTooHighException : public std::exception {
 	const char* what() const throw();

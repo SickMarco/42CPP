@@ -6,12 +6,13 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/06 17:52:49 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:13:22 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 int main()
 {
@@ -42,8 +43,7 @@ int main()
 		try {
 			Bureaucrat b(name, grade);
 			std::cout << "Name: " << b.getName() << " Grade: " << b.getGrade() << std::endl; 
-			Form f(formName, formSignGrade, formExeGrade);
-			b.signForm(f);
+			
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what() << std::endl;
