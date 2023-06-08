@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 20:00:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/08 11:28:59 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
@@ -34,7 +35,7 @@ int main()
 		std::cout << "Insert Bureaucrat Grade: ";
 		std::cin >> grade;
 		std::cin.ignore(1000, '\n');
-		std::cout << "Chose Form type [1: ShrubberyCreationForm, 2: RobotomyRequestForm]: ";
+		std::cout << "Chose Form type [1: ShrubberyCreationForm, 2: RobotomyRequestForm, 3: PresidentialPardonForm]: ";
 		std::cin >> formType;
 		std::cin.ignore(1000, '\n');
 		std::cout << "Chose Form target: ";
@@ -46,6 +47,10 @@ int main()
 				break;
 			case 2:
 				form = new RobotomyRequestForm(target);
+				break;
+			case 3:
+				form = new PresidentialPardonForm(target);
+				break;
 			default:
 				continue;
 		}

@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:21:03 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/07 19:38:03 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/08 11:13:27 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("", 0, 0), _target(""){}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(std::string& target) : AForm("RobotomyRequestForm", 72, 45), _target(target){}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) : AForm(src), _target(src._target){}
 
@@ -45,13 +45,12 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const{
 	switch (random)
 	{
 		case 0 :
-			std::cout << this->_target << "has been robotomized successfully 50%% of the time" << std::endl;
+			std::cout << this->_target << " has been robotomized successfully 50% of the time" << std::endl;
 			break;
 		case 1 :
-			std::cout << this->_target << "robotomy failed" << std::endl;
+			std::cout << this->_target << " robotomy failed" << std::endl;
 			break;
 	}
-	
 }
 	
 	
