@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/08 11:28:59 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/08 18:03:54 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	int grade;
 	int formType;
 	std::string target;
-	AForm *form;
+	AForm *form = NULL;
 
 	while (!std::cin.eof())
 	{
@@ -40,6 +40,8 @@ int main()
 		std::cin.ignore(1000, '\n');
 		std::cout << "Chose Form target: ";
 		std::getline(std::cin, target);
+		if (std::cin.eof())
+			break;
 		switch (formType)
 		{
 			case 1:
@@ -64,7 +66,8 @@ int main()
 		catch(const std::exception& e) {
 			std::cerr << e.what() << std::endl;
 		}
-		delete form;
+		if (form)
+			delete form;
 	}
 	return 0;
 }

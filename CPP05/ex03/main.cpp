@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 18:22:01 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/08 12:18:13 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/08 18:02:47 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int main()
 		std::getline(std::cin, formType);
 		std::cout << "Chose Form target: ";
 		std::getline(std::cin, target);
+		if (std::cin.eof())
+			break;
 		try {
 			Bureaucrat b(name, grade);
 			std::cout << "Name: " << b.getName() << " Grade: " << b.getGrade() << std::endl;
@@ -49,12 +51,13 @@ int main()
 			{
 				form->beSigned(b);
 				b.executeForm(*form);
-				delete form;
 			}
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what() << std::endl;
-		}	
+		}
+		if (form)
+			delete form;
 	}
 	return 0;
 }
