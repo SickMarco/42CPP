@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:28 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/10 16:24:31 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/11 16:58:27 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <cerrno>
 #include <stdlib.h>
 #include <iomanip>
+#include <sstream>
 
 class ScalarConverter
 {
@@ -30,6 +31,7 @@ private:
 	static float _f;
 	static double _d;
 	static bool _error;
+	static bool _inf;
 
 public:
 	static void convert(const std::string& src);
@@ -37,10 +39,7 @@ public:
 	static void intConv(const std::string& src);
 	static void floatConv(const std::string& src);
 	static void doubleConv(const std::string& src);
-	static void convPrinter();
+	static void convPrinter(const std::string& src);
 };
-
-
-
 
 #endif
