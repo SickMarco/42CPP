@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:28 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/11 16:58:27 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/11 17:04:08 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ class ScalarConverter
 {
 private:
 	ScalarConverter();
+	ScalarConverter(const ScalarConverter& src);
 	~ScalarConverter();
+	ScalarConverter& operator=(const ScalarConverter& src);
+
 	static char _c;
 	static int _i;
 	static float _f;

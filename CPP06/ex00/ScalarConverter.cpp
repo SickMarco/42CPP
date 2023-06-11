@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/11 16:55:47 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/11 17:05:28 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,23 @@
 ScalarConverter::ScalarConverter(){}
 
 ScalarConverter::~ScalarConverter(){}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& src){
+	*this = src;
+}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src){
+	if (this != &src)
+	{
+		_c = src._c;
+		_i = src._i;
+		_f = src._f;
+		_d = src._d;
+		_error = src._error;
+		_inf = src._inf;
+	}
+	return *this;
+}
 
 enum Type {Char = 0, Int = 1, Float = 2, Double = 3, Nan = 4, Inf = 5};
 
