@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:28 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/11 17:04:08 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/11 17:16:50 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <sstream>
+#include <cfloat>
 
 class ScalarConverter
 {

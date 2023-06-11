@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/11 17:05:28 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/11 17:17:47 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 	std::cout << std::fixed << std::setprecision(1);
 
 	std::cout << "Float: ";
-	if (!_error && !_inf && _f > std::numeric_limits<float>::min() && _f < std::numeric_limits<float>::max())
+	if (!_error && !_inf && _f > -FLT_MAX && _f < FLT_MAX)
 		std::cout << _f << "f" << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inff" << std::endl;
@@ -153,7 +153,7 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 		std::cout << "nanf" << std::endl;
 
 	std::cout << "Double: ";
-	if (!_error && !_inf && _d > std::numeric_limits<double>::min() && _d < std::numeric_limits<double>::max())
+	if (!_error && !_inf && _d > -DBL_MAX && _d < DBL_MAX)
 		std::cout << _d << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inf" << std::endl;
