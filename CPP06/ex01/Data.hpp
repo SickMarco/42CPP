@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:46:03 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/12 18:50:40 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/12 18:57:05 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 #include <iostream>
 
-struct Data
+typedef struct Data
 {
 	int test;
-};
-
+} Data;
 
 #endif
