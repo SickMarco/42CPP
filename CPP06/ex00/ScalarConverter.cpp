@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/11 17:17:47 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/15 15:24:32 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,30 @@ void  ScalarConverter::doubleConv(const std::string& input){
 	_f = static_cast<float>(_d);
 }
 
+int precisionFinder(float n){
+	
+	std::stringstream conv;
+	conv << n;
+
+	size_t i;
+	for (i = 0; i < conv.str().length(); i++)
+		if (conv.str()[i] == '.')
+			return conv.str().length() - i - 1;
+	return 1;
+}
+
+int precisionFinder(double n){
+	
+	std::stringstream conv;
+	conv << n;
+
+	size_t i;
+	for (i = 0; i < conv.str().length(); i++)
+		if (conv.str()[i] == '.')
+			return conv.str().length() - i - 1;
+	return 1;
+}
+
 void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 	
 	std::cout << "Char: ";
@@ -142,11 +166,9 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 	else
 		std::cout << "impossible" << std::endl;
 
-	std::cout << std::fixed << std::setprecision(1);
-
 	std::cout << "Float: ";
 	if (!_error && !_inf && _f > -FLT_MAX && _f < FLT_MAX)
-		std::cout << _f << "f" << std::endl;
+		 std::cout << std::fixed << std::setprecision(precisionFinder(_f)) << _f << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inff" << std::endl;
 	else
@@ -154,7 +176,7 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 
 	std::cout << "Double: ";
 	if (!_error && !_inf && _d > -DBL_MAX && _d < DBL_MAX)
-		std::cout << _d << std::endl;
+		 std::cout << std::fixed << std::setprecision(precisionFinder(_d)) << _d << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inf" << std::endl;
 	else
