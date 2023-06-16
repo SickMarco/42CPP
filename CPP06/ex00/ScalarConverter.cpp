@@ -6,11 +6,18 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:28:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/15 15:24:32 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/16 17:03:01 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+char ScalarConverter::_c;
+int ScalarConverter::_i;
+float ScalarConverter::_f;
+double ScalarConverter::_d;
+bool ScalarConverter::_error;
+bool ScalarConverter::_inf;
 
 ScalarConverter::ScalarConverter(){}
 
@@ -33,53 +40,27 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src){
 	return *this;
 }
 
-enum Type {Char = 0, Int = 1, Float = 2, Double = 3, Nan = 4, Inf = 5};
-
-char ScalarConverter::_c;
-int ScalarConverter::_i;
-float ScalarConverter::_f;
-double ScalarConverter::_d;
-bool ScalarConverter::_error;
-bool ScalarConverter::_inf;
-
 bool isInt(const std::string& input) {
-    std::istringstream iss(input);
-    int i;
-    iss >> std::noskipws >> i;
-    return iss.eof() && !iss.fail();
+    std::stringstream ss(input);
+	int i;
+    ss >> i;
+    return ss.eof() && !ss.fail();
 }
 
 bool isFloat(const std::string& input) {
 	std::string trim = input;
 	trim.erase(trim.length() - 1);
-    std::istringstream iss(trim);
-    float f;
-    iss >> std::noskipws >> f;
-    return iss.eof() && !iss.fail();
+    std::stringstream ss(trim);
+	float f;
+    ss >> f;
+    return ss.eof() && !ss.fail();
 }
 
 bool isDouble(const std::string& input) {
-    std::istringstream iss(input);
-    double d;
-    iss >> std::noskipws >> d;
-    return iss.eof() && !iss.fail();
-}
-
-int typeFinder(const std::string& input){
-	
-	if (input.length() == 1 && !isdigit(static_cast<unsigned char>(input[0])))
-		return Char;
-	else if (input.find("nan") != input.npos)
-		return Nan;
-	else if (input.find("inf") != input.npos)
-		return Inf;
-	else if (isInt(input))
-		return Int;
-	else if (input[input.length() - 1] == 'f' && isFloat(input))
-		return Float;
-	else if (isDouble(input))
-		return Double;
-	return Nan;
+    std::stringstream ss(input);
+	double d;
+    ss >> d;
+    return ss.eof() && !ss.fail();
 }
 
 void ScalarConverter::charConv(const std::string& input){
@@ -91,7 +72,7 @@ void ScalarConverter::charConv(const std::string& input){
 }
 
 void ScalarConverter::intConv(const std::string& input){
-	
+
 	_i = std::strtol(input.c_str(), 0, 10);
 	if (errno == ERANGE){
 		_error = true;
@@ -103,7 +84,7 @@ void ScalarConverter::intConv(const std::string& input){
 }
 
 void ScalarConverter::floatConv(const std::string& input){
-	
+
 	_f = std::strtof(input.c_str(), 0);
 	if (errno == ERANGE){
 		_error = true;
@@ -115,7 +96,7 @@ void ScalarConverter::floatConv(const std::string& input){
 }
 
 void  ScalarConverter::doubleConv(const std::string& input){
-	
+
 	_d = std::strtod(input.c_str(), 0);
 	if (errno == ERANGE){
 		_error = true;
@@ -126,38 +107,26 @@ void  ScalarConverter::doubleConv(const std::string& input){
 	_f = static_cast<float>(_d);
 }
 
-int precisionFinder(float n){
+int precisionFinder(const std::string& input){
 	
-	std::stringstream conv;
-	conv << n;
-
-	size_t i;
-	for (i = 0; i < conv.str().length(); i++)
-		if (conv.str()[i] == '.')
-			return conv.str().length() - i - 1;
-	return 1;
-}
-
-int precisionFinder(double n){
-	
-	std::stringstream conv;
-	conv << n;
-
-	size_t i;
-	for (i = 0; i < conv.str().length(); i++)
-		if (conv.str()[i] == '.')
-			return conv.str().length() - i - 1;
+	size_t pos = 0;
+	size_t trim = 1;
+	if (input[input.length() - 1] == 'f')
+		trim++;
+	pos = input.find('.');
+	if (pos != input.npos)
+		return input.length() - pos - trim;
 	return 1;
 }
 
 void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
-	
+
 	std::cout << "Char: ";
-	if (isprint(_c))
+	if (isprint(_c) && !_inf && _i > std::numeric_limits<char>::min() && _i < std::numeric_limits<char>::max())
 		std::cout << "'" << _c << "'" << std::endl;
-	else if (!_error && !_inf && _c > std::numeric_limits<char>::min() && _c < std::numeric_limits<char>::max())
+	else if (!_error && !_inf && _i > std::numeric_limits<char>::min() && _i < std::numeric_limits<char>::max())
 		std::cout << "Non displayable" << std::endl;
-	else
+	else if (_error || _inf ||  _i < std::numeric_limits<char>::min() || _i > std::numeric_limits<char>::max())
 		std::cout << "impossible" << std::endl;
 
 	std::cout << "Int: ";
@@ -168,7 +137,7 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 
 	std::cout << "Float: ";
 	if (!_error && !_inf && _f > -FLT_MAX && _f < FLT_MAX)
-		 std::cout << std::fixed << std::setprecision(precisionFinder(_f)) << _f << std::endl;
+		 std::cout << std::fixed << std::setprecision(precisionFinder(input)) << _f << "f" << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inff" << std::endl;
 	else
@@ -176,41 +145,36 @@ void ScalarConverter::ScalarConverter::convPrinter(const std::string& input){
 
 	std::cout << "Double: ";
 	if (!_error && !_inf && _d > -DBL_MAX && _d < DBL_MAX)
-		 std::cout << std::fixed << std::setprecision(precisionFinder(_d)) << _d << std::endl;
+		 std::cout << std::fixed << std::setprecision(precisionFinder(input)) << _d << std::endl;
 	else if (_inf)
 		std::cout << (input[0] == '-' ? "-" : "+") << "inf" << std::endl;
 	else
 		std::cout << "nan" << std::endl;
 }
 
+void ScalarConverter::typeFinder(const std::string& input){
+	
+	
+	if (input.find("nan") != input.npos)
+		_error = true;
+	else if (input.find("inf") != input.npos)
+		_inf = true;
+	if (input.length() == 1 && !isdigit(static_cast<unsigned char>(input[0])))
+		charConv(input);
+	else if (isInt(input))
+		intConv(input);
+	else if (input[input.length() - 1] == 'f' && isFloat(input))
+		floatConv(input);
+	else if (isDouble(input))
+		doubleConv(input);
+	else
+		_error = true;
+}
+
 void ScalarConverter::convert(const std::string& input){
 
 	_error = false;
 	_inf = false;
-	int type = typeFinder(input);
-	switch (type)
-	{
-	case Char:
-		charConv(input);
-		break;
-	case Int:
-		intConv(input);
-		break;
-	case Float:
-		floatConv(input);
-		break;
-	case Double:
-		doubleConv(input);
-		break;
-	case Nan:
-		_error = true;
-		break;
-	case Inf:
-		_inf = true;
-		break;
-	default:
-		std::cout << "Error finding type" << std::endl;
-		return;
-	}
+	typeFinder(input);
 	convPrinter(input);
 }
