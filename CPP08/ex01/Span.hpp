@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:34:51 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/19 16:42:30 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/19 18:46:41 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ public:
 	Span(const Span& src);
 	Span& operator=(const Span& src);
 	void addNumber(const int newNum);
-	unsigned int shortestSpan();
+	unsigned int shortestSpan() const;
 	unsigned int longestSpan() const;
+	void addNumberIterator(const std::vector<int>::iterator& it1, const std::vector<int>::iterator& it2);
 };
 
 #endif
