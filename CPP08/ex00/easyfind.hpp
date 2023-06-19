@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 12:43:59 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/15 14:01:44 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/19 14:32:30 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <list>
 
 template<typename T, typename U>
 bool easyfind(const T& src, U x){
