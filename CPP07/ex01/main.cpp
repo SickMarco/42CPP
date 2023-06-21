@@ -6,11 +6,12 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:58:55 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/14 16:30:46 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/21 14:20:26 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+#include <math.h>
 
 void pow2(int& x){
 	
@@ -31,7 +32,7 @@ int main()
 		std::cout << array[i] << std::endl;
 
 	char str[17] = "This is an array";
-	std::cout << str << std::endl;
+	std::cout << "Array: " << str << std::endl;
 	::iter(str, 17, eraser);
-	std::cout << str << std::endl;
+	std::cout  << "Erased array: " << str << std::endl;
 }
