@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:04:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/20 20:15:05 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 15:34:54 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int main()
 	std::stack<int> s(mstack);
 
 	MutantStack<int> copy(mstack);
-	MutantStack<int>::iterator it2 = copy.begin();
-	MutantStack<int>::iterator ite2 = copy.end();
-	std::cout << "--- MUTANTSTACK COPY ---" << std::endl;
+	MutantStack<int>::const_reverse_iterator it2 = copy.crbegin();
+	MutantStack<int>::const_reverse_iterator ite2 = copy.crend();
+	std::cout << "--- CONST_REVERSE MUTANTSTACK COPY ---" << std::endl;
 	while (it2 != ite2)
 	{
 		std::cout << *it2 << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:34:49 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/19 19:21:02 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 15:42:43 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ Span::Span(const unsigned int N) : capacity(N){
 	container.reserve(N);
 }
 
-Span::Span(const Span& src){
-	*this = src;
-}
+Span::Span(const Span& src) : capacity(src.capacity), container(src.container){}
 
 Span& Span::operator=(const Span& src){
-	if (this != &src)
-	{
+	if (this != &src) {
 		this->capacity = src.capacity;
 		this->container = src.container;
 	}
@@ -42,25 +39,23 @@ void Span::addNumber(const int newNum){
 unsigned int Span::longestSpan() const{
 	if (!container.size())
 		throw std::runtime_error("Container is empty");
-	else if (container.size() < 2)
+	else if (container.size() == 1)
 		throw std::runtime_error("Found only one number in container");
 
-	int max = *std::max_element(container.begin(), container.end());
-	int min = *std::min_element(container.begin(), container.end());
-	return max - min;
+	return *std::max_element(container.begin(), container.end()) - *std::min_element(container.begin(), container.end());
 }
 
 unsigned int Span::shortestSpan() const{
 	if (!container.size())
 		throw std::runtime_error("Container is empty");
-	else if (container.size() < 2)
+	else if (container.size() == 1)
 		throw std::runtime_error("Found only one number in container");
 
-	int span = INT_MAX;
-	std::vector<int> sorted = container;
+	unsigned int span = UINT_MAX;
+	std::vector<int> sorted(container);
 	std::sort(sorted.begin(), sorted.end());
 	for (std::vector<int>::const_iterator it = sorted.begin(); it != sorted.end() - 1; ++it){
-		if ((*(it + 1) - *it) < span)
+		if (static_cast<unsigned int>(*(it + 1) - *it) < (span))
 			span = *(it + 1) - *it;
 	}
 	return span;
