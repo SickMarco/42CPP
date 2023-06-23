@@ -6,12 +6,13 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:04:32 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/23 15:34:54 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 17:22:55 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <vector>
+#include <list>
 
 int main()
 {
@@ -48,10 +49,10 @@ int main()
 		++it2;
 	}
 
-	std::vector<int> vct;
-	vct.insert(vct.begin(), mstack.begin(), mstack.end());
-	std::cout << "--- VECTOR ---" << std::endl;
-	for (std::vector<int>::iterator it = vct.begin(); it != vct.end(); ++it)
+	std::list<int> lst;
+	lst.insert(lst.begin(), mstack.begin(), mstack.end());
+	std::cout << "--- LIST ---" << std::endl;
+	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it)
 		std::cout << *it << std::endl;
 	return 0;
 }

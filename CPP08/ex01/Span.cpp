@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:34:49 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/23 15:42:43 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 16:30:35 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ unsigned int Span::shortestSpan() const{
 void Span::addNumberIterator(const std::vector<int>::iterator& first, const std::vector<int>::iterator& last){
 	if (container.size() + std::distance(first, last) > capacity)
 		throw std::out_of_range("Not enough space in container");
-	container.insert(container.begin(), first, last);
+	container.insert(container.end(), first, last);
 }
