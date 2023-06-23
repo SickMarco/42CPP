@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:05:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/23 15:29:38 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 19:14:07 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ template<class T> MutantStack<T>::MutantStack(){}
 
 template<class T> MutantStack<T>::~MutantStack(){}
 
-template<class T> MutantStack<T>::MutantStack(const MutantStack<T> &src){
+template<class T> MutantStack<T>::MutantStack(const MutantStack<T> &src) : std::stack<T>(src){
 	*this = src;
 }
 
