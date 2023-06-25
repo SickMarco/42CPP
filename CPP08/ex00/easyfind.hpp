@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 12:43:59 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/19 14:32:30 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/23 15:51:29 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include <algorithm>
 #include <list>
 
-template<typename T, typename U>
-bool easyfind(const T& src, U x){
+template<typename T>
+bool easyfind(const T& src, int x){
     for (typename T::const_iterator it = src.begin(); it != src.end(); ++it){
         if (*it == x)
             return true;

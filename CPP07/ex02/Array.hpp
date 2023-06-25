@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:43:09 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/14 18:07:39 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/21 14:32:59 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	Array(const Array& src);
 	Array& operator=(const Array& src);
 
-	T& operator[](int i);
+	T& operator[](int i) const;
 	int size() const;
 };
 
