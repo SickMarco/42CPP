@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 17:16:45 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/26 14:46:03 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/27 13:00:57 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,5 @@ public:
 	void mapper(const std::string& database);
 	void exchanger() const;
 };
-
-
-
 
 #endif
