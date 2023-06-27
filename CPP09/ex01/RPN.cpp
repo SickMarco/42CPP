@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:36:07 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/26 17:32:15 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/27 14:37:41 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ void RPN::calculator(){
 	int (*fun[])(const int& x, const int& y) = {&add, &sub, &mult, &divs};
 
 	for (size_t i = 0; i < expression.length(); i++){
-		if (ops.find(expression[i]) != ops.npos){
+		size_t index = ops.find(expression[i]);
+		if (index != ops.npos){
 			int secondNumber = stk.top();
 			stk.pop();
-			int result = fun[ops.find(expression[i])](stk.top(), secondNumber);
+			int result = fun[index](stk.top(), secondNumber);
 			stk.pop();
 			stk.push(result);
 		}
