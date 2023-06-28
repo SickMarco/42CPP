@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:01:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/28 17:27:11 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/28 20:02:28 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ public:
 	void containerInit(const std::string& numberList);
 	void order();
 };
+
+#include "PmergeMe.tpp"
 
 #endif
