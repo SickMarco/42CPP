@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:01:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/27 15:37:58 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/28 17:27:11 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@
 #include <string>
 #include <sstream>
 #include <deque>
+#include <ctime>
 
 class PmergeMe
 {
 private:
 	std::vector<unsigned int> vct;
 	std::deque<unsigned int> dqe;
+	clock_t start_time;
 	PmergeMe();
 
 public:
 	PmergeMe(const std::string& numberList);
+	PmergeMe(const PmergeMe& src);
+	PmergeMe& operator=(const PmergeMe& src);
 	~PmergeMe();
 
 	void containerInit(const std::string& numberList);
