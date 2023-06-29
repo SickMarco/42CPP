@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:01:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/28 20:02:28 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/29 12:19:52 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 #define PMERGEME_HPP
 
 #include <iostream>
-#include <vector>
-#include <list>
-#include <algorithm>
 #include <string>
-#include <sstream>
+#include <vector>
 #include <deque>
+#include <algorithm>
+#include <iterator>
+#include <sstream>
 #include <ctime>
+
+#define DELIMITER 6
+#define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
+#define RESET "\033[1;0m"
 
 class PmergeMe
 {

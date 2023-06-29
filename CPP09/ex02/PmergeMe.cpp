@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:01:26 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/28 20:02:24 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/29 12:14:46 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,15 @@ void timePrinter(size_t size, double time, char Flag){
 
 void PmergeMe::order(){
 	double vecTime, deqTime;
-	std::cout << "Before:  ";
+	std::cout << RED << "Before:  ";
 	containerPrinter(vct);
 	vecTime = alghoritmTime(vct, start_time);
 	deqTime = alghoritmTime(dqe, start_time);
-	std::cout << "After:  ";
+	std::cout << GREEN << "After:  ";
+	if (!std::equal(vct.begin(), vct.end(), dqe.begin()))
+		throw std::runtime_error("Error sorting number");
 	containerPrinter(vct);
+	std::cout << RESET;
 	timePrinter(vct.size(), vecTime, 'V');
 	timePrinter(dqe.size(), deqTime - vecTime, 'D');
 }
