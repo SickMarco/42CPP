@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 17:16:48 by mbozzi            #+#    #+#             */
-/*   Updated: 2023/06/27 14:31:47 by mbozzi           ###   ########.fr       */
+/*   Updated: 2023/06/30 15:57:03 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ bool isValidFile(const std::string& path) {
 	std::ifstream file(path.c_str());
 	if (!file)
 		return false;
+	file.close();
 	return true;
 }
 
